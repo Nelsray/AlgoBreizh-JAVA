@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class DatabaseConnection {
 	// URL de connexion
-	private String url = "jdbc:mysql://localhost/Algobreizh_1.1";
+	private String url = "jdbc:mysql://localhost/algoBreizhdb_Java";
 	// Nom du user
 	private String user = "root";
 	// Mot de passe de l'utilisateur
