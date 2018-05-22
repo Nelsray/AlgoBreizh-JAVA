@@ -24,10 +24,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-/**
- *
- * @author paul
- */
 public class LoginView extends JFrame {
        
         private JLabel userNameLabel,passwordLabel;

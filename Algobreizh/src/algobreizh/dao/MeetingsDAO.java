@@ -22,11 +22,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
-/**
- *
- * @author quentinmartinez
- */
 public class MeetingsDAO  extends DAO<Meeting>{
     public MeetingsDAO(Connection conn)
     {

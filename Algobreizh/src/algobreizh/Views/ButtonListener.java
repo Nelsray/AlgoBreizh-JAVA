@@ -13,10 +13,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTable;
 
-/**
- *
- * @author quentinmartinez
- */
 public class ButtonListener implements ActionListener {
     
     private int row;

@@ -14,10 +14,6 @@ import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 
-/**
- *
- * @author quentinmartinez
- */
 public class MeetingsTable extends JTable{
     
     public  MeetingsTable(List<Meeting> meetings)

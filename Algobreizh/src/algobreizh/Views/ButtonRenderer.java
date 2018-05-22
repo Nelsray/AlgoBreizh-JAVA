@@ -5,10 +5,6 @@
  */
 package algobreizh.Views;
 
-/**
- *
- * @author quentinmartinez
- */
 import java.awt.Component;
 import javax.swing.JButton;
 import javax.swing.JTable;

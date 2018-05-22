@@ -20,10 +20,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.swing.JScrollPane;
 
-/**
- *
- * @author quentinmartinez
- */
 public class WelcomeControler {
     
 	private WelcomeView  m_view;

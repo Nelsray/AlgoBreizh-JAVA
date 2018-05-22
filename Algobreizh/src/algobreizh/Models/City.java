@@ -4,10 +4,7 @@
  * and open the template in the editor.
  */
 package algobreizh.Models;
-/**
- *
- * @author paul
- */
+
 public class City {
  
     private int id;

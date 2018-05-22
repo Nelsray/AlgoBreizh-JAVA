@@ -24,10 +24,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-/**
- *
- * @author paul
- */
 public class NewMeetingView extends JFrame {
     
     private JLabel infoLabel,dateLabel,contactNameLabel,telephoneLabel;

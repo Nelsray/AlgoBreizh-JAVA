@@ -21,12 +21,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.KeyStroke;
 
-/**
- *
- * @author paul
- */
-
-
 public class WelcomeView extends JFrame{
         private JTable table;
         private JMenuBar bar = new JMenuBar();

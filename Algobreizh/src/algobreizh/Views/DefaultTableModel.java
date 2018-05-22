@@ -5,10 +5,6 @@
  */
 package algobreizh.Views;
 
-/**
- *
- * @author quentinmartinez
- */
 public interface DefaultTableModel {
 	abstract void removeRow(int row);
 	abstract Object getItem(int index);

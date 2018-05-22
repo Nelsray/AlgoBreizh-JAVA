@@ -5,16 +5,6 @@
  */
 package algobreizh.dao;
 
-/**
- *
- * @author quentinmartinez
- */
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import algobreizh.Models.Salesman;
 import algobreizh.sql.dao.DAO;
 import java.sql.Connection;
@@ -23,10 +13,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author quentinmartinez
- */
 public class SalesmanDAO  extends DAO<Salesman>{
     
     public SalesmanDAO(Connection conn)

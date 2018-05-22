@@ -7,11 +7,6 @@ package algobreizh.context;
 
 import algobreizh.Models.Salesman;
 
-
-/**
- *
- * @author quentinmartinez
- */
 public class Context {
     public  static Salesman currUser = null;
 

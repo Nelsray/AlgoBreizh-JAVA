@@ -17,10 +17,6 @@ import algobreizh.dao.SalesmanDAO;
 import algobreizh.sql.dao.DAO;
 import java.sql.Connection;
 
-/**
- *
- * @author quentinmartinez
- */
 public class DAOFactory  extends AbstractDAOFactory{
 	
     protected static final Connection conn = DatabaseConnection.getInstance();   

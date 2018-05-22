@@ -17,11 +17,6 @@ import algobreizh.sql.dao.factory.AbstractDAOFactory;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
-/**
- *
- * @author quentinmartinez
- */
 public class LoginController {
     
         private LoginView  m_view;

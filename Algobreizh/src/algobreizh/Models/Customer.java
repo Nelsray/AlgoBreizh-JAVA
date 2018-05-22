@@ -8,10 +8,6 @@ package algobreizh.Models;
 import java.sql.Date;
 import java.time.LocalDateTime;
 
-/**
- *
- * @author paul
- */
 public class Customer {
     
     int id;

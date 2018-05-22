@@ -8,11 +8,6 @@ package algobreizh.Models;
 import java.sql.Date;
 import java.sql.Time;
 
-/**
- *
- * @author paul
- */
-
 public class Salesman {
     
     int id;

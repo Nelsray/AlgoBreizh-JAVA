@@ -15,11 +15,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-
-/**
- *
- * @author quentinmartinez
- */
 public class CitiesDAO  extends DAO<City>{
     public CitiesDAO(Connection conn)
     {

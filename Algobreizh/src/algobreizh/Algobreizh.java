@@ -10,11 +10,6 @@ package algobreizh;
 import algobreizh.Views.LoginView;
 import algobreizh.controler.LoginController;
 
-
-/**
- *
- * @author paul
- */
 public class Algobreizh {
 
     /**

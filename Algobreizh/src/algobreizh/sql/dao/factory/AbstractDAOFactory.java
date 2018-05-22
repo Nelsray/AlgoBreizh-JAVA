@@ -8,10 +8,6 @@ package algobreizh.sql.dao.factory;
 import algobreizh.Models.Customer;
 import algobreizh.sql.dao.DAO;
 
-/**
- *
- * @author quentinmartinez
- */
 public abstract class AbstractDAOFactory {
 	 public static final int DAO_FACTORY = 0;
 	 public abstract  DAO getCitiesDAO();

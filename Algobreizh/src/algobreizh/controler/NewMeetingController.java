@@ -20,11 +20,6 @@ import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-
-/**
- *
- * @author quentinmartinez
- */
 public class NewMeetingController {
     private NewMeetingView m_view;
     private Customer customer;

@@ -7,13 +7,6 @@ package algobreizh.Models;
 
 import java.time.LocalDateTime;
 
-
-
-
-/**
- *
- * @author paul
- */
 public class Meeting {
     
     private int id;
