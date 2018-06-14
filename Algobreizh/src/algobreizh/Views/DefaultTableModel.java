@@ -6,7 +6,10 @@
 package algobreizh.Views;
 
 public interface DefaultTableModel {
-	abstract void removeRow(int row);
-	abstract Object getItem(int index);
-	abstract void addRow(Object row);
+
+    abstract void removeRow(int row);
+
+    abstract Object getItem(int index);
+
+    abstract void addRow(Object row);
 }

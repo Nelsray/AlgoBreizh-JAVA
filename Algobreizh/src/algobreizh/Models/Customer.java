@@ -9,15 +9,15 @@ import java.sql.Date;
 import java.time.LocalDateTime;
 
 public class Customer {
-    
+
     int id;
     String firstname;
     String lastname;
     String email;
     City city;
     LocalDateTime lastDate;
-    
-    public Customer(int _id, String _firstname, String _lastname, String _email, City _city, LocalDateTime _date){
+
+    public Customer(int _id, String _firstname, String _lastname, String _email, City _city, LocalDateTime _date) {
         this.id = _id;
         this.firstname = _firstname;
         this.lastname = _lastname;
@@ -25,19 +25,19 @@ public class Customer {
         this.city = _city;
         this.lastDate = _date;
     }
-    
-    public Customer(){
-        
+
+    public Customer() {
+
     }
-    
+
     public LocalDateTime getLastDate() {
         return lastDate;
     }
-    
+
     public void setLastDate(LocalDateTime date) {
         lastDate = date;
     }
-    
+
     public int getId() {
         return id;
     }
@@ -77,5 +77,5 @@ public class Customer {
     public void setCity(City city) {
         this.city = city;
     }
-    
+
 }

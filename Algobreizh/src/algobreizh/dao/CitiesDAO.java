@@ -15,20 +15,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class CitiesDAO  extends DAO<City>{
-    public CitiesDAO(Connection conn)
-    {
+public class CitiesDAO extends DAO<City> {
+
+    public CitiesDAO(Connection conn) {
         super(conn);
     }
-    
+
     @Override
     public boolean create(City obj) {
-      String querry = "INSERT INTO tCities(id, name, id_tCustomer) VALUES (\'" 
+        String querry = "INSERT INTO tCities(id, name, id_tCustomer) VALUES (\'"
                 + "\',\'" + obj.getId()
                 + "\',\'" + obj.getName()
                 + "\',\'" + obj.getSalesman().getId()
                 + "\')";
-        this.execute(querry); 
+        this.execute(querry);
         return true;
     }
 
@@ -51,7 +51,7 @@ public class CitiesDAO  extends DAO<City>{
         String query = "SELECT * FROM tCities WHERE id = " + id;
         City city = null;
         try {
-            
+
             AbstractDAOFactory adf = AbstractDAOFactory.getFactory(AbstractDAOFactory.DAO_FACTORY);
             DAO<Salesman> salesmanDAO = adf.getSalesmanDAO();
             ResultSet res = this.execute(query);
@@ -63,13 +63,13 @@ public class CitiesDAO  extends DAO<City>{
                         city = new City(id, name, salesmanDAO.get(id_tSalesman));
                     }
                 } catch (SQLException e) {
+                }
             }
-        }
-	} catch (Exception e) {
+        } catch (Exception e) {
             System.out.println(e);
-	}
-	
-        return city;   
+        }
+
+        return city;
     }
 
     @Override

@@ -17,30 +17,30 @@ import algobreizh.dao.SalesmanDAO;
 import algobreizh.sql.dao.DAO;
 import java.sql.Connection;
 
-public class DAOFactory  extends AbstractDAOFactory{
-	
-    protected static final Connection conn = DatabaseConnection.getInstance();   
+public class DAOFactory extends AbstractDAOFactory {
+
+    protected static final Connection conn = DatabaseConnection.getInstance();
 
     @Override
     public DAO<City> getCitiesDAO() {
-      return new CitiesDAO(conn);
+        return new CitiesDAO(conn);
     }
 
     @Override
     public DAO<Customer> getCustomerDAO() {
-        return new CustomerDAO(conn); 
+        return new CustomerDAO(conn);
     }
 
     @Override
     public DAO<Meeting> getMeetingsDAO() {
         return new MeetingsDAO(conn);
-    };
+    }
+
+    ;
 
     @Override
     public DAO<Salesman> getSalesmanDAO() {
         return new SalesmanDAO(conn);
     }
 
-
 }
-

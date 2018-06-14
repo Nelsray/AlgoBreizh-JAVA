@@ -9,17 +9,23 @@ import algobreizh.Models.Customer;
 import algobreizh.sql.dao.DAO;
 
 public abstract class AbstractDAOFactory {
-	 public static final int DAO_FACTORY = 0;
-	 public abstract  DAO getCitiesDAO();
-	 public abstract  DAO<Customer> getCustomerDAO();
-	 public abstract  DAO getMeetingsDAO();
-	 public abstract  DAO getSalesmanDAO();
-  	 public static AbstractDAOFactory getFactory(int type){
-		    switch(type){
-		      case DAO_FACTORY:
-		        return new DAOFactory();
-		      default:
-		        return null;
-		    }
-  	 }
+
+    public static final int DAO_FACTORY = 0;
+
+    public abstract DAO getCitiesDAO();
+
+    public abstract DAO<Customer> getCustomerDAO();
+
+    public abstract DAO getMeetingsDAO();
+
+    public abstract DAO getSalesmanDAO();
+
+    public static AbstractDAOFactory getFactory(int type) {
+        switch (type) {
+            case DAO_FACTORY:
+                return new DAOFactory();
+            default:
+                return null;
+        }
+    }
 }

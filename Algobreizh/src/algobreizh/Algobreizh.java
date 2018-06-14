@@ -5,8 +5,6 @@
  */
 package algobreizh;
 
-
-
 import algobreizh.Views.LoginView;
 import algobreizh.controler.LoginController;
 
@@ -15,11 +13,10 @@ public class Algobreizh {
     /**
      * @param args the command line arguments
      */
-    
-    public static void main(String[] args) {     
+    public static void main(String[] args) {
         LoginView loginView = new LoginView();
         LoginController loginControler = new LoginController(loginView);
-        loginControler.setVisible(true);   
+        loginControler.setVisible(true);
     }
-    
+
 }

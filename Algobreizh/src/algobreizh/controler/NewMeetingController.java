@@ -21,50 +21,53 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class NewMeetingController {
+
     private NewMeetingView m_view;
     private Customer customer;
-    
-    public void setVisible(Boolean visible)  {     m_view.setVisible(visible);      }
-        
-    public NewMeetingController(NewMeetingView newMeetingView, Customer customer){
+
+    public void setVisible(Boolean visible) {
+        m_view.setVisible(visible);
+    }
+
+    public NewMeetingController(NewMeetingView newMeetingView, Customer customer) {
         this.m_view = newMeetingView;
         this.customer = customer;
         m_view.addBtnSaveListener(new BtnSaveListener());
         m_view.addBtnCancelListener(new BtnCancelListener());
-        
+
     }
-    
-    
+
     class BtnSaveListener implements ActionListener {
-	        public void actionPerformed(ActionEvent e) {
-                    
-                    if (!m_view.isFilled())
-                    {
-                       return; 
-                    }
-                    m_view.getContentPane().removeAll();
-                    AbstractDAOFactory adf = AbstractDAOFactory.getFactory(AbstractDAOFactory.DAO_FACTORY);
-                    DAO<Meeting> meetingsDAO = adf.getMeetingsDAO();
-                    DAO<Customer> customersDAO = adf.getCustomerDAO();
-                    Meeting meeting = new Meeting(0, Context.currUser, customer, m_view.getMeetingDate(), 
-                    m_view.getInformations(), m_view.getContactName(),m_view.getTelephone());
-                    meetingsDAO.create(meeting);
-                    customer.setLastDate(m_view.getMeetingDate());
-                    customersDAO.update(customer);
-                    setVisible(false); 
-	        }
-	 }
-    
+
+        public void actionPerformed(ActionEvent e) {
+
+            if (!m_view.isFilled()) {
+                return;
+            }
+            m_view.getContentPane().removeAll();
+            AbstractDAOFactory adf = AbstractDAOFactory.getFactory(AbstractDAOFactory.DAO_FACTORY);
+            DAO<Meeting> meetingsDAO = adf.getMeetingsDAO();
+            DAO<Customer> customersDAO = adf.getCustomerDAO();
+            Meeting meeting = new Meeting(0, Context.currUser, customer, m_view.getMeetingDate(),
+                    m_view.getInformations(), m_view.getContactName(), m_view.getTelephone());
+            meetingsDAO.create(meeting);
+            customer.setLastDate(m_view.getMeetingDate());
+            customersDAO.update(customer);
+            setVisible(false);
+        }
+    }
+
     class BtnCancelListener implements ActionListener {
-	        public void actionPerformed(ActionEvent e) {
-	        	 setVisible(false); 
-	        }
-	 }
-    
+
+        public void actionPerformed(ActionEvent e) {
+            setVisible(false);
+        }
+    }
+
     static public LocalDateTime toLdt(Date date) {
         GregorianCalendar cal = new GregorianCalendar();
         cal.setTime(date);
         ZonedDateTime zdt = cal.toZonedDateTime();
         return zdt.toLocalDateTime();
-}
+    }
 }

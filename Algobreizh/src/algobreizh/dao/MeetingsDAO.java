@@ -22,17 +22,17 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MeetingsDAO  extends DAO<Meeting>{
-    public MeetingsDAO(Connection conn)
-    {
+public class MeetingsDAO extends DAO<Meeting> {
+
+    public MeetingsDAO(Connection conn) {
         super(conn);
     }
 
     @Override
     public boolean create(Meeting obj) {
-       try {
+        try {
             Timestamp timestamp = Timestamp.valueOf(obj.getDateTime());
-            String querry = "INSERT INTO tMeetings(description, contact, telephone, meetingDate, id_tSalesman, id_tCustomers) VALUES (?,?,?,?,?,?)"; 
+            String querry = "INSERT INTO tMeetings(description, contact, telephone, meetingDate, id_tSalesman, id_tCustomers) VALUES (?,?,?,?,?,?)";
             PreparedStatement ps = DatabaseConnection.getInstance().prepareStatement(querry);
             ps.setString(1, obj.getInfos());
             ps.setString(2, obj.getContact());
@@ -62,19 +62,18 @@ public class MeetingsDAO  extends DAO<Meeting>{
     @Override
     public List<Meeting> getAll() {
         AbstractDAOFactory adf = AbstractDAOFactory.getFactory(AbstractDAOFactory.DAO_FACTORY);
-        
-        
+
         DAO<Salesman> salesmanDAO = adf.getSalesmanDAO();
         DAO<Customer> customersDAO = adf.getCustomerDAO();
-        
+
         List<Meeting> meetings = new ArrayList<>();
-        
+
         String query = "SELECT * FROM tMeetings";
         ResultSet res = this.execute(query);
         if (res != null) {
             try {
-		while (res.next()) {
-                    
+                while (res.next()) {
+
                     int id = res.getInt("id");
                     Timestamp timestamp = res.getTimestamp("MeetingDate");
                     //Date date = res.getDate("MeetingDate");
@@ -83,46 +82,44 @@ public class MeetingsDAO  extends DAO<Meeting>{
                     String desc = res.getString("description");
                     String contact = res.getString("contact");
                     String telephone = res.getString("telephone");
-                    Meeting m = new Meeting(id, salesman,customer, timestamp.toLocalDateTime(), desc,contact,telephone);
+                    Meeting m = new Meeting(id, salesman, customer, timestamp.toLocalDateTime(), desc, contact, telephone);
                     meetings.add(m);
-		}
+                }
             } catch (SQLException e) {
                 System.out.println("Algobreizh SQL Exception: " + e);
             }
         }
-        return meetings;   
+        return meetings;
     }
 
     @Override
     public Meeting get(int id) {
-      AbstractDAOFactory adf = AbstractDAOFactory.getFactory(AbstractDAOFactory.DAO_FACTORY);
+        AbstractDAOFactory adf = AbstractDAOFactory.getFactory(AbstractDAOFactory.DAO_FACTORY);
         DAO<Salesman> salesmanDAO = adf.getSalesmanDAO();
         DAO<Customer> customersDAO = adf.getCustomerDAO();
-        
+
         List<Meeting> meetings = new ArrayList<>();
-        
+
         String query = "SELECT * FROM tMeetings WHERE id" + id;
         ResultSet res = this.execute(query);
         if (res != null) {
             try {
-		while (res.next()) {
+                while (res.next()) {
 
-                     Timestamp timestamp = res.getTimestamp("MeetingDate");
+                    Timestamp timestamp = res.getTimestamp("MeetingDate");
                     Customer customer = customersDAO.get(res.getInt("id_tCustomer"));
                     Salesman salesman = salesmanDAO.get(res.getInt("id_tSalesman"));
                     String desc = res.getString("desc");
                     String contact = res.getString("contact");
                     String telephone = res.getString("telephone");
-                    return new Meeting(id, salesman,customer, timestamp.toLocalDateTime(), desc,contact,telephone);
-                    
-		}
+                    return new Meeting(id, salesman, customer, timestamp.toLocalDateTime(), desc, contact, telephone);
+
+                }
             } catch (SQLException e) {
                 System.out.println("Algobreizh SQL Exception: " + e);
             }
         }
-        return null;       
+        return null;
     }
 
-   
-    
 }

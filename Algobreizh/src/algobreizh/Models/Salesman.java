@@ -9,25 +9,21 @@ import java.sql.Date;
 import java.sql.Time;
 
 public class Salesman {
-    
+
     int id;
     String firstname;
     String lastname;
-    
-    public Salesman(int _id, String _firstname, String _lastname){
+
+    public Salesman(int _id, String _firstname, String _lastname) {
         this.id = _id;
         this.firstname = _firstname;
         this.lastname = _lastname;
     }
-    
-    public Salesman(int _id){
+
+    public Salesman(int _id) {
         this.id = _id;
     }
-    
-    public Salesman(){
-        
-    }
-          
+
     public int getId() {
         return id;
     }
@@ -51,5 +47,5 @@ public class Salesman {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
-    
+
 }

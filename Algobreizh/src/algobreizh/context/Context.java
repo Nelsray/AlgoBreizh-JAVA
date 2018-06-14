@@ -8,6 +8,7 @@ package algobreizh.context;
 import algobreizh.Models.Salesman;
 
 public class Context {
-    public  static Salesman currUser = null;
+
+    public static Salesman currUser = null;
 
 }

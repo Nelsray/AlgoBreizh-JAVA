@@ -8,7 +8,7 @@ package algobreizh.Models;
 import java.time.LocalDateTime;
 
 public class Meeting {
-    
+
     private int id;
     private Salesman Salesman;
     private Customer Customer;
@@ -16,8 +16,10 @@ public class Meeting {
     private String infos;
     private String contact;
     private String telephone;
+
     // Constructor with id
-    public Meeting (int _id, Salesman _salesman, Customer _customer, LocalDateTime _date, String _infos,String _contact,String _telephone){
+    public Meeting(int _id, Salesman _salesman, Customer _customer,
+            LocalDateTime _date, String _infos, String _contact, String _telephone) {
         this.id = _id;
         this.Salesman = _salesman;
         this.Customer = _customer;
@@ -26,7 +28,6 @@ public class Meeting {
         this.contact = _contact;
         this.telephone = _telephone;
     }
-
 
     public int getId() {
         return id;
@@ -43,7 +44,7 @@ public class Meeting {
     public String getContact() {
         return contact;
     }
-    
+
     public void setSalesman(Salesman Salesman) {
         this.Salesman = Salesman;
     }
@@ -71,7 +72,7 @@ public class Meeting {
     public String setTelephone(String telephone) {
         return telephone;
     }
-    
+
     public String getInfos() {
         return infos;
     }
@@ -79,8 +80,9 @@ public class Meeting {
     public void setInfos(String infos) {
         this.infos = infos;
     }
-       public void setContact(String contact) {
+
+    public void setContact(String contact) {
         this.contact = contact;
     }
-    
+
 }

@@ -23,11 +23,11 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class CustomerDAO extends DAO<Customer>{
-   
-    AbstractDAOFactory adf  = null;
-    public CustomerDAO(Connection conn)
-    {
+public class CustomerDAO extends DAO<Customer> {
+
+    AbstractDAOFactory adf = null;
+
+    public CustomerDAO(Connection conn) {
         super(conn);
         adf = AbstractDAOFactory.getFactory(AbstractDAOFactory.DAO_FACTORY);
     }
@@ -36,16 +36,16 @@ public class CustomerDAO extends DAO<Customer>{
     public boolean create(Customer c) {
         try {
             String query = "INSERT INTO tCustomers VALUES ("
-                + "\'" + c.getFirstname() 
-                + "\',\'" + c.getLastname()
-                + "\',\'" + c.getEmail()
-                + "\',\'" + c.getCity().getId()
-                + "\')";
-            this.connect.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY)
-                .executeQuery(query);
-            } catch (SQLException e) {
+                    + "\'" + c.getFirstname()
+                    + "\',\'" + c.getLastname()
+                    + "\',\'" + c.getEmail()
+                    + "\',\'" + c.getCity().getId()
+                    + "\')";
+            this.connect.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)
+                    .executeQuery(query);
+        } catch (SQLException e) {
             return false;
-        }   
+        }
         return true;
     }
 
@@ -70,48 +70,48 @@ public class CustomerDAO extends DAO<Customer>{
     }
 
     @Override
-    public Customer get(int id) {    
+    public Customer get(int id) {
         Customer customer = null;
         try {
-            ResultSet res = this.connect.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY)
-                .executeQuery("SELECT * FROM tCustomers WHERE id = " + id);
-                if (res != null) {
-                    while (res.next()) {
-                        String lastname = res.getString("lastname");
-                        String firstname = res.getString("firstname");
-                        String email = res.getString("email");
-                        Timestamp lastDate = res.getTimestamp("lastMeetingDate");
-                        int id_tCities = res.getInt("id_tCities");
-                        customer = new Customer(id, firstname, lastname, email, new City(id_tCities),lastDate.toLocalDateTime());
-                    }
+            ResultSet res = this.connect.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)
+                    .executeQuery("SELECT * FROM tCustomers WHERE id = " + id);
+            if (res != null) {
+                while (res.next()) {
+                    String lastname = res.getString("lastname");
+                    String firstname = res.getString("firstname");
+                    String email = res.getString("email");
+                    Timestamp lastDate = res.getTimestamp("lastMeetingDate");
+                    int id_tCities = res.getInt("id_tCities");
+                    customer = new Customer(id, firstname, lastname, email, new City(id_tCities), lastDate.toLocalDateTime());
                 }
-            } catch (SQLException e) {
-            
+            }
+        } catch (SQLException e) {
+
         }
         return customer;
     }
 
     @Override
     public List<Customer> getAll() {
-         List<Customer> customers = new ArrayList<Customer>();
+        List<Customer> customers = new ArrayList<Customer>();
         try {
-                DAO<City> cityDAO = adf.getCitiesDAO();
-                ResultSet res = this.connect.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY)
-                .executeQuery("SELECT * FROM tCustomers ORDER BY lastMeetingDate ASC");
-                if (res != null) {
-                    while (res.next()) {
-                        String lastname = res.getString("lastname");
-                        int id = res.getInt("id");
-                        String firstname = res.getString("firstname");
-                        String email = res.getString("email");
-                        Timestamp lastDate = res.getTimestamp("lastMeetingDate");
-                        int id_tCities = res.getInt("id_tCities");
-                        
-                        customers.add(new Customer(id, firstname, lastname, email, cityDAO.get(id_tCities),lastDate.toLocalDateTime()));
-                    }
+            DAO<City> cityDAO = adf.getCitiesDAO();
+            ResultSet res = this.connect.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)
+                    .executeQuery("SELECT * FROM tCustomers ORDER BY lastMeetingDate ASC");
+            if (res != null) {
+                while (res.next()) {
+                    String lastname = res.getString("lastname");
+                    int id = res.getInt("id");
+                    String firstname = res.getString("firstname");
+                    String email = res.getString("email");
+                    Timestamp lastDate = res.getTimestamp("lastMeetingDate");
+                    int id_tCities = res.getInt("id_tCities");
+
+                    customers.add(new Customer(id, firstname, lastname, email, cityDAO.get(id_tCities), lastDate.toLocalDateTime()));
                 }
-            } catch (SQLException e) {
-            
+            }
+        } catch (SQLException e) {
+
         }
         return customers;
     }
